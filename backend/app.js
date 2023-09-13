@@ -4,7 +4,8 @@ import morgan from 'morgan'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { success } from './helper.js'
-import { Client } from 'pg'
+import pkg from 'pg';
+const { Client } = pkg;
 
 let pokemons = [
     {
@@ -141,17 +142,23 @@ const __dirname = dirname(__filename)
 const app = express()
 const port = 3000
 
+console.log(`Postgres user: ${process.env.POSTGRES_USER}`)
+
 const client = new Client({
     user: process.env.POSTGRES_USER,
-    host: 'SG-PostgreNoSSL-14-pgsql-master.devservers.scalegrid.io',
+    host: 'postgresql',
     database: process.env.POSTGRES_DB,
-    password:  process.env.POSTGRES_PASSWORD,
+    password: process.env.POSTGRES_PASSWORD,
     port: process.env.POSTGRES_PORT,
-  })
-  client.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
+})
+try {
+    client.connect(function (err) {
+        if (err) throw err
+        console.log('Connected!')
+    })
+} catch (err) {
+    console.log(err)
+}
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
@@ -212,7 +219,7 @@ app.delete('/api/pokemons/:id', (req, res) => {
     }
     pokemons = pokemons.filter((pokemon) => pokemon.id !== id)
     const msg = `Pokemon ${deletedPokemon.name} was deleted`
-    res.json(success(msg, {deletedPokemon}))
+    res.json(success(msg, { deletedPokemon }))
 })
 
 app.listen(port, () => {
