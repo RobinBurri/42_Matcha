@@ -1,4 +1,4 @@
-DOCKER_APP_NAME = simple_vite_react_docker-react-app-dev-1
+DOCKER_APP_NAME = 42_MATCHA_docker-react-app-dev-1
 NGINX_PORT = 8080
 
 

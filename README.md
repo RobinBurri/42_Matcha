@@ -10,4 +10,3 @@ The Product will be a dating site.
 - React for the frontend
 - Node with Express for the back
 - PostgreSQL for the database
-
