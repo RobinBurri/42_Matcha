@@ -25,6 +25,7 @@ create_the_environment_file () {
 	POSTGRES_USER=${POSTGRES_USER}
 	POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 	POSTGRES_DB=${POSTGRES_NAME}
+	POSTGRES_PORT=5432
 
 	environment_file
 
