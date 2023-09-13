@@ -1,11 +1,11 @@
-DOCKER_APP_NAME = 42_MATCHA_docker-react-app-dev-1
+DOCKER_APP_NAME = 42_MATCHA-react-dev-1
 NGINX_PORT = 8080
 
 
-startdev:
+start:
 	docker compose -f docker-compose-dev.yml up
 
-stopdev:
+stop:
 	docker compose -f docker-compose-dev.yml down
 
 startprod:
