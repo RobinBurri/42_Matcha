@@ -1,14 +1,33 @@
 version: '3.8'
 
 services:
-  react-dev:
     build:
-      context: .
-      dockerfile: Dockerfile.dev
-      args: 
-        - --no-cache
+        container_name: react-dev
+        image: react-dev-image
+        context: ./frontend
+        dockerfile: Dockerfile.dev
+        args:
+            - --no-cache
     ports:
-      - "3000:5173"
+        - '3000:5173'
     volumes:
-      - ./:/app
-      - /app/node_modules/
+        - ./:/app
+        - /app/node_modules/
+
+    postgres:
+        container_name: our-postgresql
+        image: postgres:latest
+        ports:
+            - '6060:5432'
+        volumes:
+            - data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_DB=${POSTGRES_DB}
+        networks:
+            - appnet
+
+volumes:
+    data:
+      name: postgres-data

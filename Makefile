@@ -1,14 +1,20 @@
 DOCKER_APP_NAME = 42_MATCHA-react-dev-1
 NGINX_PORT = 8080
 
+env:
+	@if [ ! -e .env ]; then \
+		printf "$(GREEN)Generate environment variables\n$(DEFAULT)"; \
+		sh create-env.sh; \
+	fi
 
-start:
+
+start: env
 	docker compose -f docker-compose-dev.yml up
 
 stop:
 	docker compose -f docker-compose-dev.yml down
 
-startprod:
+startprod: env
 	docker compose -f docker-compose-prod.yml up
 
 stopprod:
