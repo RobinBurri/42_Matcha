@@ -6,17 +6,15 @@ services:
     build:
       context: ./frontend/
       dockerfile: Dockerfile.dev
-      args:
-        - --no-cache
     ports:
       - '8000:5173'
     volumes:
-      - ./:/app
+      - ./frontend/:/app
       - /app/node_modules/
 
   postgres:
     container_name: postgresql
-    image: postgres:latest
+    image: postgres:15.4-alpine3.18
     ports:
       - '5432:5432'
     volumes:
@@ -34,10 +32,12 @@ services:
       - '3000:3000'
     volumes:
       - ./backend/:/app
+      - /app/node_modules/
     env_file:
       - .env
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
 volumes:
   data:

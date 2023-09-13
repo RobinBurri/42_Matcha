@@ -1,4 +1,5 @@
-DOCKER_APP_NAME = 42_MATCHA-react-dev-1
+CONTAINER_REACT = react-dev
+CONTAINER_NODE = node-express
 NGINX_PORT = 8080
 
 env:
@@ -9,6 +10,10 @@ env:
 
 
 start: env
+	docker compose -f docker-compose-dev.yml up
+
+start2: env
+	docker-compose -f docker-compose-dev.yml build --no-cache
 	docker compose -f docker-compose-dev.yml up
 
 stop:
@@ -27,10 +32,14 @@ deploy: build
 	docker run -d -p $(NGINX_PORT):80 --name nginx-containers nginx-image
 
 load:
-	docker cp $(DOCKER_APP_NAME):/app/node_modules .
+	docker cp $(CONTAINER_REACT):/app/node_modules ./frontend/
+	docker cp $(CONTAINER_NODE):/app/node_modules ./backend/
 
-shell:
-	docker exec -it $(DOCKER_APP_NAME) sh
+shell-react:
+	docker exec -it $(CONTAINER_REACT) sh
+
+shell-node:
+	docker exec -it $(CONTAINER_NODE) sh
 
 stop-containers:
 	@docker stop $$(docker ps -aq) 2>/dev/null || true
@@ -46,4 +55,4 @@ remove-volumes:
 	@docker volume prune -fa
 
 clean: stop-containers remove-images remove-networks remove-volumes
-	rm -rf node_modules
+	rm -rf ./frontend/node_modules ./backend/node_modules
