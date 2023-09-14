@@ -1,5 +1,5 @@
-import pkg from 'pg';
-const { Client } = pkg;
+import pkg from 'pg'
+const { Client } = pkg
 
 const execute = async (query) => {
     const client = new Client({
@@ -56,8 +56,7 @@ const initTables = async () => {
             console.log('profileTable created')
         }
     })
-    const relationTable =
-    `CREATE TABLE IF NOT EXISTS relation (
+    const relationTable = `CREATE TABLE IF NOT EXISTS relation (
         relation_id SERIAL PRIMARY KEY,
         user_id INT NOT NULL REFERENCES "user" (id),
         visited_by INT[] DEFAULT ARRAY[]::INT[],
