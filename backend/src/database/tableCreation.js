@@ -1,8 +1,8 @@
 import execute from "./dbHelper.js"
 
 const initTables = async () => {
-    const userTable = `
-    CREATE TABLE IF NOT EXISTS "user" (
+    const usersTable = `
+    CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
         first_name VARCHAR(255) NOT NULL,
         last_name VARCHAR(255) NOT NULL,
@@ -14,15 +14,15 @@ const initTables = async () => {
         language VARCHAR(10) CHECK (language IN ('en', 'fr'))
     );`
 
-    await execute(userTable).then((result) => {
+    await execute(usersTable).then((result) => {
         if (result) {
-            console.log('userTable created')
+            console.log('users Table created')
         }
     })
     const profileTable = `
     CREATE TABLE IF NOT EXISTS profile (
         profile_id SERIAL PRIMARY KEY,
-        user_id INT NOT NULL REFERENCES "user" (id),
+        user_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE,
         date_of_birth DATE,
         sex VARCHAR(10),
         sexual_orientation VARCHAR(20),
@@ -32,12 +32,12 @@ const initTables = async () => {
     );`
     await execute(profileTable).then((result) => {
         if (result) {
-            console.log('profileTable created')
+            console.log('profile Table created')
         }
     })
     const relationTable = `CREATE TABLE IF NOT EXISTS relation (
         relation_id SERIAL PRIMARY KEY,
-        user_id INT NOT NULL REFERENCES "user" (id),
+        user_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE,
         visited_by INT[] DEFAULT ARRAY[]::INT[],
         liked_by INT[] DEFAULT ARRAY[]::INT[],
         fame_rating INT DEFAULT 1,
@@ -45,7 +45,7 @@ const initTables = async () => {
     );`
     await execute(relationTable).then((result) => {
         if (result) {
-            console.log('relationTable created')
+            console.log('relation Table created')
         }
     })
 }
