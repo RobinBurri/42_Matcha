@@ -11,7 +11,7 @@ const port = 3000
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
-// initTables()
+await initTables()
 
 app.get('/', (req, res) => {
     res.send('Hello World!!!')
