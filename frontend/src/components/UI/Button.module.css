@@ -1,11 +1,17 @@
 button {
     border: none;
-    padding: 1rem;
+    margin: 1rem;
+    padding: 0.8rem;
     font-size: 1rem;
     width: 10em;
     border-radius: 1rem;
     cursor: pointer;
     color: white;
+    border: none;
+}
+
+button::marker {
+    outline: solid 1px var(--color-blue-dark)
 }
 
 .primary {
@@ -20,7 +26,6 @@ button {
 
 .warning {
     background-color: var(--color-red);
-    text-shadow: 0 0.1rem #bcb4b4;
     box-shadow: 0.1rem 0.2rem 0.2rem 0.1rem #ddcab4;
 }
 
@@ -46,7 +51,7 @@ button {
 
 .success:active {
     color: white;
-    box-shadow: 0 0.2rem #dfd9d9;
+    box-shadow: 0 0.2rem #dfd9d9;   
     transform: translateY(0.2rem);
 }
 

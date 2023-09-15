@@ -1,16 +1,18 @@
 import Button from '../../UI/Button'
-import classes from './BaseForm.module.css'
+import styles from './BaseForm.module.css'
+import FirstNameInput from './FirstNameInput'
+import LastNameInput from './LastNameInput'
 
 const BaseForm = () => {
     return (
-        <form>
-            <div></div>
-            <div className={classes.form_action}>
+        <form className={styles.form}>
+            <div>
+               <FirstNameInput></FirstNameInput>
+               <LastNameInput></LastNameInput>
+            </div>
+            <div className={styles.form_action}>
                 <Button type="submit" onClick={() => {}}>
                     Submit
-                </Button>
-                <Button type="button" onClick={() => {}}>
-                    Cancel
                 </Button>
                 <Button type="reset" onClick={() => {}}>
                     Cancel
