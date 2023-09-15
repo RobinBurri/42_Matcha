@@ -1,17 +1,11 @@
-import SignupForm from "./components/Signup/SignupForm"
-import Card from "./components/UI/Card"
+import SignupForm from './components/Forms/Signup'
 
 function App() {
-
-  return (
-    <>
-      <h1>App components</h1>
-      <Card>
-       <SignupForm></SignupForm>
-      </Card>
-
-    </>
-  )
+    return (
+        <>
+            <SignupForm></SignupForm>
+        </>
+    )
 }
 
 export default App
