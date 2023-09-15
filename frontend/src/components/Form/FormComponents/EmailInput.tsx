@@ -3,7 +3,11 @@ import { useState } from 'react';
 import styles from './Input.module.css'
 
 
-const EmailInput = () => {
+interface EmailInputProps {
+    onFormSubmit: (e: React.FormEvent) => void
+}
+
+const EmailInput = (props: EmailInputProps) => {
     const [email, setEmail] = useState('');
     return (
         <div className={styles.input_group}>

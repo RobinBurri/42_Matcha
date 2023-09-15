@@ -13,10 +13,10 @@ const BaseForm = () => {
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <div>
-                <FirstNameInput></FirstNameInput>
-                <LastNameInput></LastNameInput>
-                <EmailInput></EmailInput>
-                <PasswordInput></PasswordInput>
+                <FirstNameInput onFormSubmit={handleSubmit} />
+                <LastNameInput onFormSubmit={handleSubmit} />
+                <EmailInput onFormSubmit={handleSubmit} />
+                <PasswordInput onFormSubmit={handleSubmit} />
             </div>
             <div className={styles.form_action}>
                 <Button type="submit" onClick={() => {}}>

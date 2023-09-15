@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import styles from './Input.module.css'
 
-const FirstNameInput = () => {
+interface FirstNameInputProps {
+    onFormSubmit: (e: React.FormEvent) => void
+}
+
+const FirstNameInput = (props: FirstNameInputProps) => {
     const [firstName, setFirstName] = useState('')
+    const [firstNameIsValid, setFirstNameIsValid] = useState(false);
     return (
         <div className={styles.input_group}>
             <input

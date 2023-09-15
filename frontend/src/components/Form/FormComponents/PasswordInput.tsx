@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import styles from './Input.module.css'
 
-const PasswordInput = () => {
+
+interface PasswordInputProps {
+    onFormSubmit: (e: React.FormEvent) => void
+}
+
+const PasswordInput = (props: PasswordInputProps) => {
     const [password, setPassword] = useState('')
     return (
         <div className={styles.input_group}>
