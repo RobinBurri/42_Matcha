@@ -1,8 +1,16 @@
 .form {
-    margin: 2rem;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.inputs {
+    min-width: 62%;
+}
 
 .form_action {
+    margin-top: 4rem;
     text-align: end;
 }

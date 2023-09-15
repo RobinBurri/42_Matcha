@@ -35,9 +35,10 @@ const FirstNameInput = (props: FirstNameInputProps) => {
                 required
             />
             <label className={styles.form_label}>First Name</label>
-            {!isValid && (
-                <p className={styles.form_error}>First Name is required</p>
-            )}
+            {!isValid ? (
+                <p className={styles.form_error}>First name is required</p>
+            ): <p className={styles.form_info}>* First name must be at between 4 and 20 characters</p>}
+       
         </div>
     )
 }

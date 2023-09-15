@@ -34,9 +34,9 @@ const LastNameInput = (props: LastNameInputProps) => {
                 required
             />
             <label className={styles.form_label}>Last Name</label>
-            {!isValid && (
-                <p className={styles.form_error}>Last Name is required</p>
-            )}
+            {!isValid ? (
+                <p className={styles.form_error}>Last name is required</p>
+            ): <p className={styles.form_info}>* Last name must be at between 4 and 20 characters</p>}
         </div>
     )
 }

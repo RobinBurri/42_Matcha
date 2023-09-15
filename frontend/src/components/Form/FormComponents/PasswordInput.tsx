@@ -35,9 +35,9 @@ const PasswordInput = (props: PasswordInputProps) => {
                 required
             />
             <label className={styles.form_label}>Password</label>
-            {!isValid && (
+            {!isValid ? (
                 <p className={styles.form_error}>Password is required</p>
-            )}
+            ): <p className={styles.form_info}>* Password rules: (between 4 and 20 characters, at least one number, at least one uppercase and one lowercase letter)</p>}
         </div>
     )
 }

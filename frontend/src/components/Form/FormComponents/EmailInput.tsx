@@ -34,9 +34,9 @@ const EmailInput = (props: EmailInputProps) => {
                 required
             />
             <label className={styles.form_label}>Email</label>
-            {!isValid && (
+            {!isValid ? (
                 <p className={styles.form_error}>Email is required</p>
-            )}
+            ): <p className={styles.form_info}>* Email must be valid</p>}
         </div>
     )
 }

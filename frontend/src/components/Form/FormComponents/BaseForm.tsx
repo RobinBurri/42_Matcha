@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import Button from '../../UI/Button'
 import styles from './BaseForm.module.css'
+import Button from '../../UI/Button'
 import EmailInput from './EmailInput'
 import FirstNameInput from './FirstNameInput'
 import LastNameInput from './LastNameInput'
@@ -21,7 +21,7 @@ const BaseForm = () => {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
-            <div>
+            <div className={styles.inputs}>
                 <FirstNameInput value={firstName} setFirstname={setFirstName} />
                 <LastNameInput value={LastName} setLastname={setLastName} />
                 <NicknameInput value={nickname} setNickname={setNickname} />

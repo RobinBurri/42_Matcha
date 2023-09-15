@@ -35,9 +35,9 @@ const NicknameInput = (props: NicknameInputProps) => {
                 required
             />
             <label className={styles.form_label}>Nickname</label>
-            {!isValid && (
+            {!isValid ? (
                 <p className={styles.form_error}>Nickname is required</p>
-            )}
+            ): <p className={styles.form_info}>* nickname must be at between 4 and 20 characters</p>}
         </div>
     )
 }
