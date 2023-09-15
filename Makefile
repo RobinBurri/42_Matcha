@@ -32,13 +32,14 @@ deploy: build
 	docker run -d -p $(NGINX_PORT):80 --name nginx-containers nginx-image
 
 load:
+	rm -rf ./frontend/node_modules ./backend/node_modules
 	docker cp $(CONTAINER_REACT):/app/node_modules ./frontend/
 	docker cp $(CONTAINER_NODE):/app/node_modules ./backend/
 
-shell-react:
+shell-front:
 	docker exec -it $(CONTAINER_REACT) sh
 
-shell-node:
+shell-back:
 	docker exec -it $(CONTAINER_NODE) sh
 
 stop-containers:
