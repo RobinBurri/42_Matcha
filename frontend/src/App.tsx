@@ -1,9 +1,13 @@
 import './App.css'
+import BaseForm from './components/Form/FormComponents/BaseForm'
+import Card from './components/UI/Card'
 
 function App() {
     return (
         <>
-            <h1>HELLO THere!!</h1>
+            <Card>
+                <BaseForm></BaseForm>
+            </Card>
         </>
     )
 }

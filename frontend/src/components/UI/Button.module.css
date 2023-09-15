@@ -1,0 +1,84 @@
+button {
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 10em;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: white;
+}
+
+.primary {
+    background-color: var(--color-blue-dark);
+    box-shadow: 0.1rem 0.2rem 0.2rem 0.1rem #b8bad4;
+}
+
+.success {
+    background-color: var(--color-blue-light);
+    box-shadow: 0.1rem 0.2rem 0.2rem 0.1rem #b4cbd0;
+}
+
+.warning {
+    background-color: var(--color-red);
+    text-shadow: 0 0.1rem #bcb4b4;
+    box-shadow: 0.1rem 0.2rem 0.2rem 0.1rem #ddcab4;
+}
+
+.primary:active {
+    color: white;
+    box-shadow: 0 0.2rem #dfd9d9;
+    transform: translateY(0.2rem);
+}
+
+.primary:hover:not(:disabled) {
+    color: white;
+    background-color: color-mix(
+        in srgb,
+        var(--color-blue-dark) 70%,
+        var(--color-dark)
+    );
+}
+
+.primary:disabled {
+    cursor: auto;
+    color: grey;
+}
+
+.success:active {
+    color: white;
+    box-shadow: 0 0.2rem #dfd9d9;
+    transform: translateY(0.2rem);
+}
+
+.success:hover:not(:disabled) {
+    background-color: color-mix(
+        in srgb,
+        var(--color-blue-light) 90%,
+        var(--color-dark)
+    );
+}
+
+.success:disabled {
+    cursor: auto;
+    color: grey;
+}
+
+.warning:active {
+    color: white;
+    box-shadow: 0 0.2rem #dfd9d9;
+    transform: translateY(0.2rem);
+}
+
+.warning:hover:not(:disabled) {
+    color: white;
+    background-color: color-mix(
+        in srgb,
+        var(--color-red) 90%,
+        var(--color-dark)
+    );
+}
+
+.warning:disabled {
+    cursor: auto;
+    color: grey;
+}
