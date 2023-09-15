@@ -1,5 +1,6 @@
 import Button from '../../UI/Button'
 import styles from './BaseForm.module.css'
+import EmailInput from './EmailInput'
 import FirstNameInput from './FirstNameInput'
 import LastNameInput from './LastNameInput'
 
@@ -9,6 +10,7 @@ const BaseForm = () => {
             <div>
                <FirstNameInput></FirstNameInput>
                <LastNameInput></LastNameInput>
+               <EmailInput></EmailInput>
             </div>
             <div className={styles.form_action}>
                 <Button type="submit" onClick={() => {}}>

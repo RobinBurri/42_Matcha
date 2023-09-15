@@ -7,9 +7,8 @@ const FirstNameInput = () => {
             <input
                 type="input"
                 className={styles.form_field}
-                placeholder="Name"
-                name="name"
-                id="name"
+                name="first_name"
+                id="first_name"
                 required
             />
             <label className={styles.form_label}>First Name</label>
