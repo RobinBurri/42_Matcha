@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import styles from './Input.module.css'
 
-interface FirstNameInputProps {
+interface NicknameInputProps {
     value: string
-    setFirstname: (value: string) => void
+    setNickname: (value: string) => void
 }
 
-const FirstNameInput = (props: FirstNameInputProps) => {
+const NicknameInput = (props: NicknameInputProps) => {
     const [isValid, setIsValid] = useState(true)
 
     const BlurHandler = () => {
@@ -15,7 +15,7 @@ const FirstNameInput = (props: FirstNameInputProps) => {
         }
     }
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        props.setFirstname(event.target.value)
+        props.setNickname(event.target.value)
         if (props.value.trim().length === 0) {
             setIsValid(true)
         }
@@ -34,12 +34,12 @@ const FirstNameInput = (props: FirstNameInputProps) => {
                 autoComplete="off"
                 required
             />
-            <label className={styles.form_label}>First Name</label>
+            <label className={styles.form_label}>Nickname</label>
             {!isValid && (
-                <p className={styles.form_error}>First Name is required</p>
+                <p className={styles.form_error}>Nickname is required</p>
             )}
         </div>
     )
 }
 
-export default FirstNameInput
+export default NicknameInput

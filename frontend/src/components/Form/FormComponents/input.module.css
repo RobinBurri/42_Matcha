@@ -57,3 +57,7 @@
 .form_field{
   &:required,&:invalid { box-shadow:none; }
 }
+
+.form_error {
+  color: red;
+}
